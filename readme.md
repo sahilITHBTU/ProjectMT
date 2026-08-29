@@ -332,7 +332,7 @@ All responses follow the shape:
 {
   "StatusCode": 200,
   "data": { "...": "..." },
-  "message": "Human readable message"
+  "message": " success message"
 }
 ```
 Errors follow:
@@ -340,7 +340,7 @@ Errors follow:
 {
   "success": false,
   "statusCode": 400,
-  "message": "Human readable error",
+  "message": " error message",
   "errors": []
 }
 ```
