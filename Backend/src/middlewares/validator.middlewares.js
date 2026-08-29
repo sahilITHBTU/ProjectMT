@@ -8,12 +8,12 @@ if(errors.isEmpty()){
     return next()
    }
 const extractedErrors = []
-errors.array().map((err)=>extractedErrors.push(
-    {
-        [err.path]:err.message
-    }
-  ));
-  throw new ApiError(422,"Recieved data is  not vaild",extractedErrors)
+errors.array().forEach((err) => {
+  extractedErrors.push({
+    [err.path]: err.message,
+  });
+});
+  return next(new ApiError(422,"Recieved data is  not vaild",extractedErrors))
 }
 
 export {validate}

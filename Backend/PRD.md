@@ -1,6 +1,6 @@
 # Product Requirements Document (PRD)
 
-## Project management 
+## Project management
 
 ### 1. Product Overview
 
@@ -68,14 +68,6 @@ ProjectMT Backend is a RESTful API service designed to support collaborative pro
 - **Note Updates:** Modify existing notes (Admin only)
 - **Note Deletion:** Remove notes (Admin only)
 
-
- #### 3.6.1 AI Co-Pilot Capabilities (New ✨) 
- - **Natural Language Task Parsing:** Extract title, description, deadlines, and project member assignments from a single raw text string.
-
-- **Procedural Subtask Generation:** Analyze high-level task contexts to output actionable, structured step-by-step subtask objects.
-
-- **Automated Standup Summarization:** Parse user log activity (status adjustments, note updates, and assignments) over a 24-hour window to construct standardized status text reports.
-
 #### 3.7 System Health
 
 - **Health Check:** API endpoint for system status monitoring
@@ -128,12 +120,6 @@ ProjectMT Backend is a RESTful API service designed to support collaborative pro
 - `PUT /:projectId/n/:noteId` - Update note (secured, Admin only)
 - `DELETE /:projectId/n/:noteId` - Delete note (secured, Admin only)
 
-**AI Copilot Routes** (`/api/v1/ai/`) (New ✨)
-
-- `POST /:projectId/parse-task` - Turn an unformatted text block into a fully structured payload (secured)
-- `POST /:projectId/t/:taskId/suggest-subtasks` - Generate micro-milestones matching the context of a primary task (secured, Admin/Project Admin only)
-- `GET /my-standup` - Extract database activity histories into a formatted standup text block (secured)
-
 **Health Check** (`/api/v1/healthcheck/`)
 
 - `GET /` - System health status
@@ -151,10 +137,7 @@ ProjectMT Backend is a RESTful API service designed to support collaborative pro
 | Create/Delete Subtasks     | ✓     | ✓             | ✗      |
 | Create/Update/Delete Notes | ✓     | ✗             | ✗      |
 | View Notes                 | ✓     | ✓             | ✓      |
-| Parse Natural Language     | ✓     | ✓             | ✓      |
-|Suggest Subtasks (AI)       | ✓     | ✓             | ✗      |
-|Generate Daily Standup Draft| ✓     | ✓             | ✓      |
-|                            |       |               |        |
+
 #### 4.3 Data Models
 
 **User Roles:**
@@ -186,10 +169,11 @@ ProjectMT Backend is a RESTful API service designed to support collaborative pro
 - File metadata tracking (URL, MIME type, size)
 - Secure file upload handling
 - File upload security with Multer middleware.
--CORS configuration for cross-origin requests.
--AI Determinism Enforcement: API integrations utilize structured JSON outputs  explicitly scoped by system schemas to prevent prompt injection and payload malformation.
+  -CORS configuration for cross-origin requests.
+  -AI Determinism Enforcement: API integrations utilize structured JSON outputs explicitly scoped by system schemas to prevent prompt injection and payload malformation.
 
 #### 7. File Management
+
 -Support for multiple file attachments on tasks.
 -Files stored in public/images directory.
 -File metadata tracking (URL, MIME type, size).
@@ -203,5 +187,5 @@ ProjectMT Backend is a RESTful API service designed to support collaborative pro
 - Role-based access control implementation
 - File attachment capability for enhanced collaboration
 - Email notification system for user verification and password reset
--Seamless JSON structure returns from AI integrations without execution delays  exceeding 2.5 seconds.
+  -Seamless JSON structure returns from AI integrations without execution delays exceeding 2.5 seconds.
 - Comprehensive API documentation through endpoint structure
